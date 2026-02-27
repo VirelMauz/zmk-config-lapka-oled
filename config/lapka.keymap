@@ -18,6 +18,7 @@
 #define SYM 2
 #define NUM 3
 #define SYS 4
+#define SWP 5
 
 / {
     conditional_layers {
@@ -43,6 +44,42 @@
             bindings = <&kp DELETE>;
             key-positions = <2 3>;
         };
+        cmb_undo {
+			bindings = <&kp LC(Z)>;
+			key-positions = <20 21>;
+		};
+		cmb_copy {
+			bindings = <&kp LC(C)>;
+			key-positions = <21 22>;
+		};
+		cmb_paste {
+			bindings = <&kp LC(V)>;
+			key-positions = <22 23>;
+		};
+		cmb_enter {
+			bindings = <&kp ENTER>;
+			key-positions = <23 24>;
+		};
+		cmb_caps {
+			bindings = <&caps_word>;
+			key-positions = <26 28>;
+		};
+		cmb_lang {
+			bindings = <&kp SCROLLLOCK>;
+			key-positions = <6 8>;
+		};
+		cmb_shcha {
+			bindings = <&kp RA(U)>;
+			key-positions = <7 8>;
+		};
+		cmb_ha {
+			bindings = <&kp SQT>;
+			key-positions = <8 9>;
+		};
+		cmb_e {
+			bindings = <&kp LBKT>;
+			key-positions = <18 19>;
+		};
     };
 
     behaviors {
@@ -80,32 +117,40 @@
             hold-trigger-on-release;
         };
 
-        swapper: swapper {
-            compatible = "zmk,behavior-tri-state";
-            label = "SWAPPER";
-            #binding-cells = <0>;
-            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-            ignored-key-positions = <7 13 16 17 18>;
-        };
-        tabber: tabber {
-            compatible = "zmk,behavior-tri-state";
-            label = "TABBER";
-            #binding-cells = <0>;
-            bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;
-            ignored-key-positions = <13>;
-        };
+		// one hand alt-tab / ctrl-tab
+		tabber: tabber {
+			compatible = "zmk,behavior-tri-state";
+			label = "TABBER";
+			#binding-cells = <0>;
+			bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;
+			ignored-key-positions = <2>; // shift-tab
+		};
+		switcher: switcher {
+			compatible = "zmk,behavior-tri-state";
+			label = "SWITCHER";
+			#binding-cells = <0>;
+			bindings = <&kt LALT>, <&kp GRAVE>, <&kt LALT>;
+			ignored-key-positions = <12>; // shift-grave
+		};
+		swapper: swapper {
+			compatible = "zmk,behavior-tri-state";
+			label = "SWAPPER";
+			#binding-cells = <0>;
+			bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+			ignored-key-positions = <22>; // shift-tab
+		};
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        default_layer {  //0
             bindings = <
 &kp Q          &kp W        &kp F            &kp P              &kp G             /* | */        &kp J          &kp L              &kp U            &kp Y             &kp SEMI
 &hml LGUI A    &hml LALT R  &hml LCTRL S     &hml LSHIFT T      &kp D             /* | */        &kp H          &hmr LSHIFT N      &hmr LCTRL E     &hmr LALT I       &hmr LGUI O
-&kp Z          &kp X        &kp C            &kp V              &kp B             /* | */        &kp K          &kp M              &kp COMMA        &kp DOT           &mt RALT SLASH
+&lt SWP Z      &kp X        &kp C            &kp V              &kp B             /* | */        &kp K          &kp M              &kp COMMA        &kp DOT           &mt RALT SLASH
                             /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-                            &kp BSPC         &lt NAV ESC        &kp SPACE         /* | */        &lt NUM TAB    &lt SYM ENTER      &kp DEL
+                            &kp BSPC         &lt NAV ESC        &lt NAV SPACE     /* | */        &lt NUM TAB    &lt SYM ENTER      &kp DEL
 
                                                                 &kp A       &kp B       &kp C         &kp D
                                                                 &kp E       &kp F       &kp G         &kp H
@@ -113,11 +158,11 @@
             >;
         };
 
-        navigation_layer {
+        navigation_layer {  //1
             bindings = <
-&kp LC(Q)     &kp LC(W)     &kp LC(F)        &kp LC(P)          &tabber            /* | */        &kp PG_UP      &kp HOME           &kp UP          &kp END            &kp LC(SEMI)
+&kp LC(Q)     &kp LC(W)     &kp LC(F)        &kp LC(P)          &kp LC(G)          /* | */        &kp PG_UP      &kp HOME           &kp UP          &kp END            &kp LC(SEMI)
 &kp LGUI      &sk LALT      &sk LCTRL        &sk LSHIFT         &kp LC(D)          /* | */        &kp PG_DN      &kp LEFT           &kp DOWN        &kp RIGHT          &kp LC(O)
-&kp LC(Z)     &kp LC(X)     &ght LS(LC(C)) LC(C) &ght LS(LC(V)) LC(V) &swapper     /* | */        &kp LC(K)      &kt LC(M)          &kp K_CONTEXT_MENU &kp LC(PERIOD)  &kp LC(SLASH)
+&kp LC(Z)     &kp LC(X)     &ght LS(LC(C)) LC(C) &ght LS(LC(V)) LC(V) &kp LC(B)    /* | */        &kp LC(K)      &kt LC(M)          &kp K_CONTEXT_MENU &kp LC(PERIOD)  &kp LC(SLASH)
                             /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
                             &trans           &trans             &trans             /* | */        &trans         &trans             &trans
 
@@ -128,7 +173,7 @@
             >;
         };
 
-        symbols_layer {
+        symbols_layer {  //2
             bindings = <
 &kp EXCL      &kp AT        &kp HASH         &kp DOLLAR         &kp PERCENT        /* | */        &kp CARET      &kp AMPERSAND      &kp STAR          &kp LPAR          &kp RPAR
 &kp EQUAL     &kp PLUS      &kp MINUS        &kp UNDER          &kp LBKT           /* | */        &kp RBKT       &sk LSHIFT         &sk LCTRL         &sk LALT          &kp SQT
@@ -138,7 +183,7 @@
             >;
         };
 
-        numbers-fn_layer {
+        numbers-fn_layer {  //3
             bindings = <
 &kp F1        &kp F2        &kp F3          &kp F4              &kp F22            /* | */        &kp MINUS      &kp N7            &kp N8            &kp N9            &kp STAR
 &kp F5        &kp F6        &kp F7          &kp F8              &kp F23            /* | */        &kp PLUS       &kp N4            &kp N5            &kp N6            &kp N0
@@ -148,7 +193,7 @@
             >;
         };
 
-        system-fun_layer {
+        system-fun_layer {  //4
             bindings = <
 &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2    &none              &studio_unlock     /* | */        &kp K_VOL_UP    &none             &kp F20 /* mic */  &none            &none
 &bt BT_CLR    &bt BT_CLR_ALL &none           &none              &ext_power EP_TOG  /* | */        &kp K_MUTE      &kp K_PREV        &kp K_PLAY_PAUSE   &kp K_NEXT       &none
@@ -157,5 +202,15 @@
                              &none           &none              &none              /* | */        &none          &none              &none
             >;
         };
+
+        swapper_layer { //5
+			bindings = <
+&none         &none         &kp LS(TAB)     &tabber         &none                  /* | */        &none            &none          	&none  			      &none             &none
+&none         &none         &kp LS(GRAVE)   &switcher       &none                  /* | */        &none            &none          	&none  			      &none             &none
+&none         &none         &kp LS(TAB)     &swapper        &none                  /* | */        &none            &none          	&none  			      &none             &none
+                            /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+                            &none           &none           &none                  /* | */        &none            &none            &none
+			>;
+		};
     };
 };
