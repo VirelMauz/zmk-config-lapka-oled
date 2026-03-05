@@ -7,7 +7,7 @@ include:
 
   # Lapka Dongle with display (optional)
   - board: nice_nano
-    shield: lapka_dongle_display
+    shield: lapka_dongle_display dongle_display
     snippet: studio-rpc-usb-uart
     artifact-name: lapka-dongle-display
 

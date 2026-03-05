@@ -96,6 +96,7 @@
         compatible = "zmk,keymap";
 
         default_layer {  //0
+			label = "DEF";
             bindings = <
 &kp Q          &kp W        &kp F            &kp P              &kp G             /* | */        &kp J          &kp L              &kp U            &kp Y             &kp SEMI
 &hml LGUI A    &hml LALT R  &hml LCTRL S     &hml LSHIFT T      &kp D             /* | */        &kp H          &hmr LSHIFT N      &hmr LCTRL E     &hmr LALT I       &hmr LGUI O
@@ -106,6 +107,7 @@
         };
 
         navigation_layer {  //1
+			label = "NAV";
             bindings = <
 &kp LC(Q)     &kp LC(W)     &kp LC(F)        &kp LC(P)          &kp LC(G)          /* | */        &kp PG_UP      &kp HOME           &kp UP          &kp END            &kp LC(SEMI)
 &kp LGUI      &sk LALT      &sk LCTRL        &sk LSHIFT         &kp LC(D)          /* | */        &kp PG_DN      &kp LEFT           &kp DOWN        &kp RIGHT          &kp LC(O)
@@ -116,6 +118,7 @@
         };
 
         symbols_layer {  //2
+			label = "SYM";
             bindings = <
 &kp EXCL      &kp AT        &kp HASH         &kp DOLLAR         &kp PERCENT        /* | */        &kp CARET      &kp AMPERSAND      &kp STAR          &kp LPAR          &kp RPAR
 &kp EQUAL     &kp PLUS      &kp MINUS        &kp UNDER          &kp LBKT           /* | */        &kp RBKT       &sk LSHIFT         &sk LCTRL         &sk LALT          &kp SQT
@@ -126,6 +129,7 @@
         };
 
         numbers-fn_layer {  //3
+			label = "NUM";
             bindings = <
 &kp F1        &kp F2        &kp F3          &kp F4              &kp F22            /* | */        &kp MINUS      &kp N7            &kp N8            &kp N9            &kp STAR
 &kp F5        &kp F6        &kp F7          &kp F8              &kp F23            /* | */        &kp PLUS       &kp N4            &kp N5            &kp N6            &kp N0
@@ -136,6 +140,7 @@
         };
 
         system-fun_layer {  //4
+			label = "SYS";
             bindings = <
 &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2    &none              &studio_unlock     /* | */        &kp K_VOL_UP    &none             &kp F20 /* mic */  &none            &none
 &bt BT_CLR    &bt BT_CLR_ALL &none           &none              &ext_power EP_TOG  /* | */        &kp K_MUTE      &kp K_PREV        &kp K_PLAY_PAUSE   &kp K_NEXT       &none
@@ -146,6 +151,7 @@
         };
 
         swapper_layer { //5
+            label = "SWP";
 			bindings = <
 &none         &none         &kp LS(GRAVE)   &switcher       &none                  /* | */        &none            &none          	&none  			      &none             &none
 &none         &none         &kp LS(TAB)     &tabber         &none                  /* | */        &none            &none          	&none  			      &none             &none
