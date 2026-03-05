@@ -5,6 +5,12 @@ include:
     snippet: studio-rpc-usb-uart
     artifact-name: lapka-dongle
 
+  # Lapka Dongle with display (optional)
+  - board: nice_nano
+    shield: lapka_dongle_display
+    snippet: studio-rpc-usb-uart
+    artifact-name: lapka-dongle-display
+
   # Lapka left can either be a central (no dongle) or peripheral (with dongle)
   - board: nice_nano
     shield: lapka_left_central
