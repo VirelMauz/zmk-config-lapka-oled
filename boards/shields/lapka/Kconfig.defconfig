@@ -59,6 +59,9 @@ if SHIELD_LAPKA_LEFT_PERIPHERAL || SHIELD_LAPKA_RIGHT_PERIPHERAL
 config ZMK_SPLIT
     default y
 
+config ZMK_BATTERY
+    default y
+
 config ZMK_BATTERY_REPORTING
     default y
 
