@@ -3,7 +3,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
-#include "combos.dtsi"
 
 //  0  1  2  3  4       5  6  7  8  9
 // 10 11 12 13 14      15 16 17 18 19
@@ -20,6 +19,8 @@
 #define NUM 3
 #define SYS 4
 #define SWP 5
+
+#include "combos.dtsi"
 
 / {
     conditional_layers {
