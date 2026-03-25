@@ -10,12 +10,14 @@
         //----LEFT----//
         cmb_bspc {
             bindings = <&kp BACKSPACE>;
+            timeout-ms = <75>;
             key-positions = <1 2>;
             layers = <DEF NAV>;
         };
 
         cmb_del {
             bindings = <&kp DELETE>;
+            timeout-ms = <75>;
             key-positions = <2 3>;
             layers = <DEF NAV>;
         };
