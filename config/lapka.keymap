@@ -32,6 +32,11 @@
             if-layers = <NAV SYM>;
             then-layer = <SYS>;
         };
+        sys_layer2 {
+            if-layers = <NAV NUM>;
+            then-layer = <SYS>;
+        };
+
     };
 };
 
@@ -107,9 +112,9 @@
             bindings = <
 &kp Q          &kp W        &kp F            &kp P              &kp G             /* | */        &kp J          &kp L              &kp U            &kp Y             &kp SEMI
 &hml LGUI A    &hml LALT R  &hml LCTRL S     &hml LSHIFT T      &kp D             /* | */        &kp H          &hmr LSHIFT N      &hmr LCTRL E     &hmr LALT I       &hmr LGUI O
-&lt SWP Z      &kp X        &kp C            &kp V              &kp B             /* | */        &kp K          &kp M              &kp COMMA        &kp DOT           &mt RALT SLASH
+&lt SWP Z      &kp X        &kp C            &kp V              &kp B             /* | */        &kp K          &kp M              &kp COMMA         &kp DOT           &kp SLASH
                             /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-                            &kp BSPC         &lt NAV ESC        &lt NAV SPACE     /* | */        &lt NUM TAB    &lt SYM ENTER      &kp DEL
+                            &kp BSPC         &lt NAV ESC        &lt NAV SPACE     /* | */        &lt NUM TAB    &lt SYM ENTER      &mt RALT DEL
             >;
         };
 
@@ -127,9 +132,9 @@
         symbols_layer {  //2
 			label = "SYM";
             bindings = <
-&kp EXCL      &kp AT        &kp HASH         &kp DOLLAR         &kp PERCENT        /* | */        &kp CARET      &kp AMPERSAND      &kp STAR          &kp LPAR          &kp RPAR
-&kp EQUAL     &kp PLUS      &kp MINUS        &kp UNDER          &kp LBKT           /* | */        &kp RBKT       &sk LSHIFT         &sk LCTRL         &sk LALT          &kp SQT
-&kp PIPE      &kp GRAVE     &kp SEMI         &kp LPAR           &kp LBRC           /* | */        &kp RBRC       &kp RPAR           &kp LS(SEMI)      &kp TILDE         &kp BACKSLASH
+&kp EXCL      &kp AT        &kp HASH         &kp DOLLAR         &kp PERCENT        /* | */        &kp CARET      &kp AMPERSAND      &kp STAR          &kp SQT           &kp LS(SQT)
+&kp EQUAL     &kp PLUS      &kp MINUS        &kp UNDER          &kp LBKT           /* | */        &kp RBKT       &sk LSHIFT         &sk LCTRL         &sk LALT          &kp LGUI
+&kp PIPE      &kp GRAVE     &kp SEMI         &kp LBRC           &kp LPAR           /* | */        &kp RPAR       &kp RBRC           &kp LS(SEMI)      &kp TILDE         &kp BACKSLASH
                             /* - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
                             &trans           &trans             &trans             /* | */        &trans         &trans             &trans
             >;

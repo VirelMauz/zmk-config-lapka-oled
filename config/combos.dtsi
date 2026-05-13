@@ -12,14 +12,14 @@
             bindings = <&kp BACKSPACE>;
             timeout-ms = <75>;
             key-positions = <1 2>;
-            layers = <DEF NAV>;
+            layers = <DEF NAV SYM NUM>;
         };
 
         cmb_del {
             bindings = <&kp DELETE>;
             timeout-ms = <75>;
             key-positions = <2 3>;
-            layers = <DEF NAV>;
+            layers = <DEF NAV SYM NUM>;
         };
 
         cmb_cut {
