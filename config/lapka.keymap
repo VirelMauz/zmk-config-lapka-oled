@@ -42,7 +42,7 @@
             >;
         };
 
-        // Макрос для NAV: при нажатии сброс модов + активация слоя, при отпускании деактивация
+        // Макрос для NAV: при нажатии сброс модов + активация слоя, при отпускании – деактивация и сброс всех модов
         la_nav: la_nav {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -56,6 +56,10 @@
                 &macro_press &mo NAV
                 &macro_pause_for_release
                 &macro_release &mo NAV
+                &macro_release &kp LSHFT
+                &macro_release &kp LCTRL
+                &macro_release &kp LALT
+                &macro_release &kp LGUI
             >;
         };
 
@@ -73,10 +77,14 @@
                 &macro_press &mo SYM
                 &macro_pause_for_release
                 &macro_release &mo SYM
+                &macro_release &kp LSHFT
+                &macro_release &kp LCTRL
+                &macro_release &kp LALT
+                &macro_release &kp LGUI
             >;
         };
 
-        // Макрос для Ctrl+Tab
+        // Макрос для Ctrl+Tab (мод удерживается до отпускания слоя)
         ctrl_tab_macro: ctrl_tab_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -85,12 +93,10 @@
             bindings = <
                 &macro_press &kp LCTRL
                 &macro_tap &kp TAB
-                &macro_pause_for_release
-                &macro_release &kp LCTRL
             >;
         };
 
-        // Макрос для Alt+Tab
+        // Макрос для Alt+Tab (мод удерживается до отпускания слоя)
         alt_tab_macro: alt_tab_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -99,12 +105,10 @@
             bindings = <
                 &macro_press &kp LALT
                 &macro_tap &kp TAB
-                &macro_pause_for_release
-                &macro_release &kp LALT
             >;
         };
 
-        // Макрос для Cmd+Tab
+        // Макрос для Cmd+Tab (мод удерживается до отпускания слоя)
         cmd_tab_macro: cmd_tab_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -113,8 +117,6 @@
             bindings = <
                 &macro_press &kp LGUI
                 &macro_tap &kp TAB
-                &macro_pause_for_release
-                &macro_release &kp LGUI
             >;
         };
 
