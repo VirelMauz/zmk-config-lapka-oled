@@ -223,6 +223,7 @@
         compatible = "zmk,keymap";
 
         def_layer {
+            label = "DEF";
             bindings = <
 _ Q         _ W         _ E         _ R         _ T         _ Y         _ U         _ I         _ O         _ P
 _ A         _ S         _ D         _ F         _ G         _ H         _ J         _ K         _ L         _ Tilde
@@ -232,6 +233,7 @@ _ Z         _ X         _ C         _ V         _ B         _ N         _ M     
         };
 
         gam_layer {
+            label = "GAM";
             bindings = <
 _ TAB       _ Q         _ W         _ E         _ R         ___         ___         _ UP        ___         _ TAB
 _ LSFT      _ A         _ S         _ D         _ F         ___         _ LEFT      _ DOWN      _ RIGHT     _ RSFT
@@ -241,6 +243,7 @@ _ LCTRL     _ Z         _ X         _ C         _ V         ___         ___     
         };
 
         gfn_layer {
+            label = "GFN";
             bindings = <
 _ N5        _ N1        _ N2        _ N3        _ N4        BT_Toggle   BT_1        BT_2           BT_3        BT_Clear
 _ N0        _ N6        _ N7        _ N8        _ N9        ___         ___         ___            ___         ___
@@ -250,6 +253,7 @@ _ G         _ J         _ I         _ M         _ T         _ KP_NUM    ___     
         };
 
         nav_layer {
+            label = "NAV";
             bindings = <
 &swap_ctrl  &swap_lalt &swap_lgui  ___         _ ESC       _ ESC       _ HOME      _ END       _ BSPC      _ DEL
 &cm_gui     &cm_alt     &cm_ctrl    &cm_sft     _ RET       _ RET       _ LEFT      _ DOWN      _ UP        _ RIGHT
@@ -259,6 +263,7 @@ _ PrevSpace _ NextSpace &tog GAM    _ PSCRN     _ TAB       _ TAB       _ PG_UP 
         };
 
         sym_layer {
+            label = "SYM";
             bindings = <
 _ N1        _ N2        _ N3        _ N4        _ N5        _ N6        _ N7        _ N8        _ N9        _ N0
 _ Tilde     _ Grave     _ SQuot     _ DQuot     _ Minus     _ Plus      &cm_sft     &cm_ctrl    &cm_alt     &cm_gui
@@ -268,6 +273,7 @@ _ Backslash ___         _ Semicolon _ Comma     _ Under     _ Equal     _ Dot   
         };
 
         num_layer {
+            label = "NUM";
             bindings = <
 _ KP_N1     _ KP_N2     _ KP_N3     _ KP_N4     _ KP_N5     _ KP_N6     _ KP_N7     _ KP_N8     _ KP_N9     _ KP_N0
 &cm_gui     &cm_alt     &cm_ctrl    &cm_sft     _ F11       _ F12       &cm_sft     &cm_ctrl    &cm_alt     &cm_gui
@@ -277,6 +283,7 @@ _ F1        _ F2        _ F3        _ F4        _ F5        _ F6        _ F7    
         };
 
         cmd_layer {
+            label = "CMD";
             bindings = <
 _ MEH(Q)    _ MEH(W)    _ MEH(E)    _ MEH(R)    _ MEH(T)    _ MEH(Y)    _ VOL_D     _ C_MUTE     _ VOL_U     _ MEH(P)
 _ MEH(A)    _ MEH(S)    _ MEH(D)    _ MEH(F)    _ MEH(G)    _ MEH(H)    _ T_PRV     _ T_PP       _ T_NXT     _ MEH(SEMI)
